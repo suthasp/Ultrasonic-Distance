@@ -176,6 +176,14 @@ void sendData(int value,int value2) {
   Serial.println();
   client.stop();
   //----------------------------------------
+    if(waterlevel>90)
+      {
+        digitalWrite(relayPin, HIGH);
+      }
+      else
+        {
+          digitalWrite(relayPin, LOW);
+        }
 }
 
 //===============================================

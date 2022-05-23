@@ -176,6 +176,7 @@ void sendData(int value,int value2) {
   Serial.println();
   client.stop();
   //----------------------------------------
+  //Add Tirgger Relay if water level more than 90 cm.
     if(waterlevel>90)
       {
         digitalWrite(relayPin, HIGH);

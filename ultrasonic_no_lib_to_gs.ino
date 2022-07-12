@@ -25,6 +25,7 @@ long duration;
 int distance;
 int waterlevel;
 int rainspout_high = 200;
+int litre;
 
 
 // Replace with your network credentials
@@ -89,16 +90,20 @@ void loop() {
   delayMicroseconds(20);
   digitalWrite(trigPin, LOW);
   
+  
   // Read the echoPin. pulseIn() returns the duration (length of the pulse) in microseconds:
   duration = pulseIn(echoPin, HIGH);
   
   // Calculate the distance:
   distance = duration*0.034/2;
   waterlevel = rainspout_high-distance;
+  litre = waterlevel*23;
       Serial.print("Distance: ");
       Serial.println(distance);
       Serial.print("Duration: ");
       Serial.println(duration);
+      Serial.print("Litre: ");
+      Serial.println(litre);
     
     sendData(sensorLocation,waterlevel); 
  
